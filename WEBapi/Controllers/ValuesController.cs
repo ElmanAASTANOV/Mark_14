@@ -11,34 +11,31 @@ namespace WEBapi.Controllers
     {
         // GET api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public List<Customer> Get()
         {
-            return new string[] { "value1", "value2" };
+            
+            using(DBContent dbContent = new DBContent())
+            {
+               return dbContent.GetCustomerList();
+            }
+            
+            
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public Customer Get(int id)
         {
-            return "value";
+            using(DBContent content = new DBContent())
+            {
+                return content.GetCustomer(id);
+            }
         }
 
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody]string value)
-        {
-        }
+       [HttpPost]
+       public void Post(int id)
+       {
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+       }
     }
 }

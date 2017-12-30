@@ -1,0 +1,10 @@
+C:\Projects\DotNETcore\mark_14\WEBpage\bin\Debug\netcoreapp2.0\WEBpage.deps.json
+C:\Projects\DotNETcore\mark_14\WEBpage\bin\Debug\netcoreapp2.0\WEBpage.runtimeconfig.json
+C:\Projects\DotNETcore\mark_14\WEBpage\bin\Debug\netcoreapp2.0\WEBpage.runtimeconfig.dev.json
+C:\Projects\DotNETcore\mark_14\WEBpage\bin\Debug\netcoreapp2.0\WEBpage.dll
+C:\Projects\DotNETcore\mark_14\WEBpage\bin\Debug\netcoreapp2.0\WEBpage.pdb
+C:\Projects\DotNETcore\mark_14\WEBpage\obj\Debug\netcoreapp2.0\WEBpage.csproj.CoreCompileInputs.cache
+C:\Projects\DotNETcore\mark_14\WEBpage\obj\Debug\netcoreapp2.0\WEBpage.AssemblyInfoInputs.cache
+C:\Projects\DotNETcore\mark_14\WEBpage\obj\Debug\netcoreapp2.0\WEBpage.AssemblyInfo.cs
+C:\Projects\DotNETcore\mark_14\WEBpage\obj\Debug\netcoreapp2.0\WEBpage.dll
+C:\Projects\DotNETcore\mark_14\WEBpage\obj\Debug\netcoreapp2.0\WEBpage.pdb

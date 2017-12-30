@@ -1,37 +1,25 @@
-﻿using System;
+
+
+
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using WEBpage.Models;
+using Newtonsoft.Json;
 
-namespace WEBpage.Controllers
+public class HomeController :Controller
 {
-    public class HomeController : Controller
-    {
-        public IActionResult Index()
-        {
-            return View();
-        }
 
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
+public async Task<IActionResult> Index(){
 
-            return View();
-        }
+ HttpClient client = new HttpClient();
+    
+    var data  =await client.GetAsync("http://192.168.1.102:1453/api/values");
+    List<Customer> model = JsonConvert.DeserializeObject<List<Customer>>( data.Content.ReadAsStringAsync().Result );
 
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
+    return View(model);
+}
 
-            return View();
-        }
 
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-    }
+
 }

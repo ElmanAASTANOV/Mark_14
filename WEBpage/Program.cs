@@ -20,6 +20,7 @@ namespace WEBpage
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
+                .UseUrls("http://192.168.1.102:1454")
                 .Build();
     }
 }
