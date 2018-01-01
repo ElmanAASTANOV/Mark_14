@@ -14,13 +14,13 @@ namespace WEBpage
     {
         public static void Main(string[] args)
         {
-            BuildWebHost(args).Run();
+           new WebHostBuilder()
+           .UseKestrel()
+           .UseUrls("http://192.168.1.102:1454")
+           .UseContentRoot("C:/Projects/DotNETcore/mark_14/WEBpage")
+           .UseStartup<Startup>()
+           .Build()
+           .Run();
         }
-
-        public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .UseUrls("http://192.168.1.102:1454")
-                .Build();
     }
 }

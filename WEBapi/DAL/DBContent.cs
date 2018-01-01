@@ -7,7 +7,7 @@ class DBContent : IDisposable
 {
 
    private string connectionString = "Server = localhost; DataBase = CustomerDB; Integrated Security=true;";
-
+   
    private string commandString;
    private SqlConnection connection = null;
    private SqlCommand command = null;
@@ -63,6 +63,8 @@ class DBContent : IDisposable
    public Customer GetCustomer(int id){
 
       Customer customer = new Customer();
+      if(connection==null) return customer;
+
       commandString = "select * from Customer where id = " +id;
         using(command = new SqlCommand(commandString,connection))
         {
@@ -84,6 +86,19 @@ class DBContent : IDisposable
      return customer; 
    }
    
+   public void UpdateCustomer(int ID,string Name,string SurName,int Age,decimal Payment,string Adress){
+    if(connection == null) return;
+        commandString = "Update Customer " + 
+        "set Name = '" + Name + "', Surname = '"+ SurName+"',Age = "+ Age +" ,Payment = "+ Payment +" ,Adress = '"+ Adress +"' " +
+        "where Id = "+ID; 
+
+        using(command = new SqlCommand(commandString,connection))
+        {
+            command.ExecuteNonQuery();
+        }
+
+   }
+
    public void Dispose(){
        if(connection != null) connection.Dispose();
        if(command != null) command.Dispose();

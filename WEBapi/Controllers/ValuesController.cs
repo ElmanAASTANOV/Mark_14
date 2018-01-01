@@ -9,6 +9,7 @@ namespace WEBapi.Controllers
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
+
         // GET api/values
         [HttpGet]
         public List<Customer> Get()
@@ -33,9 +34,12 @@ namespace WEBapi.Controllers
         }
 
        [HttpPost]
-       public void Post(int id)
+       public void Post([FromBody]Customer customer)
        {
-
+            using(DBContent content = new DBContent())
+            {
+                content.UpdateCustomer(customer.ID,customer.Name,customer.SurName,customer.Age,customer.Payment,customer.Adress);
+            }
        }
     }
 }

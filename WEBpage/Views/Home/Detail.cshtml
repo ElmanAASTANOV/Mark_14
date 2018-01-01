@@ -1,5 +1,4 @@
-@model List<Customer>
-
+@model Customer
 
 <html>
     <head>
@@ -8,6 +7,7 @@
 
     <body>
 
+    <form action="/Home/Update" method="post">
         <table>
             <thead>
             <tr>
@@ -20,39 +20,35 @@
             </tr>
             </thead>
 
-            <tbody>
-                
-
-                @foreach(Customer customer in Model)
-                    {
-                      
+            <tbody>                 
                     <tr>
                    
                         <td>
-                        <input type="text" value="@customer.Name" name="Name" />
+                        <input type="text" value="@Model.Name" name="Name" />
                         </td>
                         <td>
-                        <input type="text" value="@customer.SurName" name="SurName" />
+                        <input type="text" value="@Model.SurName" name="SurName" />
                         </td>
                         <td>
-                        <input type="number" value="@customer.Age" name="Age" />
+                        <input type="number" value="@Model.Age" name="Age" />
                         </td>
                         <td>
-                        <input type="number" value="@customer.Payment" name="Payment" />
+                        <input type="number" value="@Model.Payment" name="Payment" />
                         </td>
                         <td>
-                        <input type="text" value="@customer.Adress" name="Adress" />
+                        <input type="text" value="@Model.Adress" name="Adress" />
                         </td>  
                         <td>
-                        <a href="/Home/Detail/@customer.ID"><h4>Detail</h4></a>
+                        <input type="submit" value="Update" />
+                        <input type="hidden" value="@Model.ID" name="ID" />
                         </td>
                       
                     </tr>
                     
-                    }  
+                      
             </tbody>
 
         </table>
-
+ </form> 
    </body>
 </html>
