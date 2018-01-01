@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
+
 
 namespace WEBapi
 {
@@ -14,13 +10,14 @@ namespace WEBapi
     {
         public static void Main(string[] args)
         {
-            BuildWebHost(args).Run();
+            
+             (new WebHostBuilder())
+           .UseKestrel()
+           .UseUrls("http://192.168.1.102:1453")
+           .UseContentRoot("C:/Projects/DotNETcore/mark_14/WEBapi")
+           .UseStartup<Startup>()
+           .Build()
+           .Run();
         }
-
-        public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .UseUrls("http://192.168.1.102:1453")
-                .Build();
     }
 }
